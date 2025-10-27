@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="cyber">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../style/styles.css" />
+    <title>КОММУНИКАЦИОННЫЙ УЗЕЛ | Прямые каналы связи</title>
+    <style>
+
+        [data-theme="cyber"] {
+            --primary: #00f3ff;
+            --secondary: #ff00ff;
+            --accent: #ffff00;
+            --bg: #0a0a14;
+            --surface: #151528;
+            --text: #e0e0ff;
+            --glow: 0 0 15px var(--primary);
+            --error: #ff0033;
+            --success: #00ff88;
+        }
+
+        .cyber-header {
+            background: linear-gradient(135deg, #0a0a14, #1a1a2e);
+            border-bottom: 3px solid var(--primary);
+            padding: 1.5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .comms-title {
+            position: relative;
+            display: inline-block;
+        }
+
+        .header__title.glitch {
+            font-family: 'Orbitron', monospace;
+            font-size: 2.8rem;
+            color: transparent;
+            background: linear-gradient(45deg, var(--primary), var(--accent), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            position: relative;
+            animation: comms-pulse 3s ease-in-out infinite;
+        }
+
+        .signal-bars {
+            position: absolute;
+            bottom: -10px;
+            right: 0;
+            display: flex;
+            gap: 3px;
+        }
+
+        .signal-bar {
+            width: 4px;
+            background: var(--success);
+            animation: signal-strength 2s infinite ease-in-out;
+        }
+
+        .signal-bar:nth-child(1) { height: 8px; animation-delay: 0s; }
+        .signal-bar:nth-child(2) { height: 12px; animation-delay: 0.2s; }
+        .signal-bar:nth-child(3) { height: 16px; animation-delay: 0.4s; }
+        .signal-bar:nth-child(4) { height: 20px; animation-delay: 0.6s; }
+
+        .cyber-scan {
+            position: relative;
+            background: var(--surface);
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 0.8rem;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .cyber-scan:hover {
+            box-shadow: var(--glow);
+            transform: scale(1.1);
+        }
+
+        .system-nav {
+            background: var(--surface);
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--secondary);
+            border-top: 1px solid var(--primary);
+        }
+
+        .nav-grid {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+
+        .nav-node {
+            position: relative;
+        }
+
+        .nav-link {
+            color: var(--text);
+            text-decoration: none;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            padding: 0.8rem 1.5rem;
+            border: 1px solid transparent;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            display: block;
+        }
+
+        .nav-link--active {
+            color: var(--primary);
+            border-color: var(--primary);
+            box-shadow: var(--glow);
+            background: rgba(0, 243, 255, 0.1);
+        }
+
+        .nav-link--active::before {
+            content: '▶';
+            position: absolute;
+            left: -10px;
+            color: var(--accent);
+            animation: nav-blink 1s infinite;
+        }
+
+        .cyber-main {
+            background: var(--bg);
+            min-height: 70vh;
+            padding: 2rem 0;
+        }
+
+        .comms-interface {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .terminal-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--primary);
+        }
+
+        .terminal-title {
+            font-family: 'Orbitron', monospace;
+            color: var(--primary);
+            font-size: 2rem;
+            margin: 0;
+            text-transform: uppercase;
+        }
+
+        .connection-status {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-left: auto;
+        }
+
+        .status-indicator {
+            width: 12px;
+            height: 12px;
+            background: var(--success);
+            border-radius: 50%;
+            animation: status-pulse 2s infinite;
+        }
+
+        .comms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .comms-channel {
+            background: var(--surface);
+            border: 2px solid var(--primary);
+            border-radius: 10px;
+            padding: 2rem;
+            position: relative;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .comms-channel:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--glow);
+        }
+
+        .channel-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .channel-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--bg);
+        }
+
+        .channel-title {
+            font-family: 'Orbitron', monospace;
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin: 0;
+            text-transform: uppercase;
+        }
+
+        .channel-data {
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .data-link {
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 1px dashed var(--accent);
+            transition: all 0.3s ease;
+        }
+
+        .data-link:hover {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+            text-shadow: var(--glow);
+        }
+
+        .comms-node {
+            background: var(--surface);
+            border: 2px solid var(--secondary);
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .node-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .node-item {
+            text-align: center;
+            padding: 1.5rem;
+            border: 1px solid rgba(0, 243, 255, 0.3);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .node-item:hover {
+            border-color: var(--primary);
+            box-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
+        }
+
+        .node-label {
+            color: var(--text);
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .node-value {
+            color: var(--primary);
+            font-family: 'Orbitron', monospace;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .initiate-comms {
+            background: transparent;
+            border: 3px solid var(--accent);
+            color: var(--accent);
+            font-family: 'Orbitron', monospace;
+            font-size: 1.1rem;
+            font-weight: bold;
+            padding: 1.2rem 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            display: block;
+            margin: 2rem auto;
+        }
+
+        .initiate-comms:hover {
+            background: var(--accent);
+            color: var(--bg);
+            box-shadow: 0 0 20px var(--accent);
+            transform: scale(1.05);
+        }
+
+        .initiate-comms::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .initiate-comms:hover::before {
+            left: 100%;
+        }
+
+
+        .cyber-modal {
+            background: var(--surface);
+            border: 3px solid var(--primary);
+            border-radius: 15px;
+            padding: 0 10px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 0 30px rgba(0, 243, 255, 0.5);
+            position: fixed;
+        }
+
+        .cyber-modal::backdrop {
+            background: rgba(10, 10, 20, 0.9);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 1.5rem;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .modal-title {
+            font-family: 'Orbitron', monospace;
+            color: var(--bg);
+            font-size: 1.5rem;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .modal-content {
+            padding: 2rem;
+
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+            margin:  0 15px  1.5rem;
+            position: relative;
+        }
+
+        .input-label {
+            display: block;
+            color: var(--primary);
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .required {
+            color: var(--error);
+        }
+
+        .cyber-input {
+            width: 100%;
+            background: rgba(0, 243, 255, 0.1);
+            border: 2px solid var(--primary);
+            border-radius: 5px;
+            padding: 0.8rem 1rem;
+            color: var(--text);
+            font-family: 'Courier New', monospace;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .cyber-input:focus {
+            outline: none;
+            box-shadow: var(--glow);
+            background: rgba(0, 243, 255, 0.2);
+        }
+
+        .cyber-select {
+            width: 100%;
+            background: rgba(0, 243, 255, 0.1);
+            border: 2px solid var(--primary);
+            border-radius: 5px;
+            padding: 0.8rem 1rem;
+            color: var(--text);
+            font-family: 'Courier New', monospace;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .cyber-select:focus {
+            outline: none;
+            box-shadow: var(--glow);
+        }
+
+        .cyber-textarea {
+            width: 100%;
+            background: rgba(0, 243, 255, 0.1);
+            border: 2px solid var(--primary);
+            border-radius: 5px;
+            padding: 0.8rem 1rem;
+            color: var(--text);
+            font-family: 'Courier New', monospace;
+            font-size: 1rem;
+            resize: vertical;
+            min-height: 120px;
+            transition: all 0.3s ease;
+        }
+
+        .cyber-textarea:focus {
+            outline: none;
+            box-shadow: var(--glow);
+            background: rgba(0, 243, 255, 0.2);
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+            margin-top: 2rem;
+        }
+
+        .btn--secondary {
+            background: transparent;
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+            padding: 0.8rem 1.5rem;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .btn--secondary:hover {
+            background: var(--secondary);
+            color: var(--bg);
+            box-shadow: 0 0 15px var(--secondary);
+        }
+
+        .btn--primary {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 0.8rem 1.5rem;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .btn--primary:hover {
+            background: var(--primary);
+            color: var(--bg);
+            box-shadow: 0 0 15px var(--primary);
+        }
+
+        .cyber-footer {
+            background: var(--surface);
+            border-top: 3px solid var(--primary);
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .footer-signal {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            animation: signal-scan 3s linear infinite;
+        }
+
+        .system-id {
+            font-family: 'Orbitron', monospace;
+            color: var(--primary);
+            font-size: 1rem;
+            margin: 0;
+        }
+
+
+        @keyframes comms-pulse {
+            0%, 100% { 
+                text-shadow: 
+                    0 0 10px var(--primary),
+                    0 0 20px var(--primary),
+                    0 0 30px var(--primary);
+            }
+            50% { 
+                text-shadow: 
+                    0 0 5px var(--accent),
+                    0 0 10px var(--accent),
+                    0 0 15px var(--accent);
+            }
+        }
+
+        @keyframes signal-strength {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        @keyframes status-pulse {
+            0%, 100% { 
+                opacity: 1;
+                box-shadow: 0 0 10px var(--success);
+            }
+            50% { 
+                opacity: 0.5;
+                box-shadow: 0 0 20px var(--success);
+            }
+        }
+
+        @keyframes nav-blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        @keyframes signal-scan {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .header__title.glitch {
+                font-size: 2rem;
+            }
+            
+            .nav-grid {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .comms-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .node-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-actions {
+                flex-direction: column;
+            }
+        }
+
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+    </style>
+</head>
+<body>
+        <header class="cyber-header">
+            <div class="comms-title">
+                <h1 class="header__title glitch" data-text="КОММУНИКАЦИОННЫЙ УЗЕЛ">КОММУНИКАЦИОННЫЙ УЗЕЛ</h1>
+                <div class="signal-bars">
+                    <div class="signal-bar"></div>
+                    <div class="signal-bar"></div>
+                    <div class="signal-bar"></div>
+                    <div class="signal-bar"></div>
+                </div>
+            </div>
+            <button class="cyber-scan header__theme-toggle" aria-label="Активировать сканирование сети" >
+                <span class="header__theme-icon">🔍</span>
+            </button>
+        </header>
+
+        <nav class="system-nav">
+            <ul class="nav-grid">
+                <li class="nav-node">
+                    <a href="../index.html" class="nav-link">
+                        ЦЕНТРАЛЬНЫЙ ХАБ
+                    </a>
+                </li>
+                <li class="nav-node">
+                    <a href="./news.html" class="nav-link">
+                        ИНФО-ПОТОК
+                    </a>
+                </li>
+                <li class="nav-node">
+                    <a href="./goods.html" class="nav-link">
+                        КИБЕР-АРСЕНАЛ
+                    </a>
+                </li>
+                <li class="nav-node">
+                    <a href="./contacts.html" class="nav-link nav-link--active">
+                        КОММ-УЗЕЛ
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <main class="cyber-main">
+            <div class="comms-interface">
+                <div class="terminal-header">
+                    <h2 class="terminal-title">>> ДОСТУПНЫЕ КАНАЛЫ СВЯЗИ_</h2>
+                    <div class="connection-status">
+                        <div class="status-indicator"></div>
+                        <span class="status-text">СИГНАЛ УСТАНОВЛЕН</span>
+                    </div>
+                </div>
+
+                <section class="comms-grid">
+                    <article class="comms-channel">
+                        <div class="channel-header">
+                            <div class="channel-icon">✉</div>
+                            <h3 class="channel-title">ЭЛЕКТРОННАЯ ПОЧТА</h3>
+                        </div>
+                        <div class="channel-data">
+                            <p><strong>КАНАЛ ДОСТУПА:</strong> 
+                                <a href="mailto:gracheveloper@gmail.com" class="data-link">gracheveloper@gmail.comu</a>
+                            </p>
+                            <p><strong>СТАТУС:</strong> <span style="color: var(--success)">▲ ОНЛАЙН</span></p>
+                            <p><strong>ПРОТОКОЛ:</strong> SMTP/SSL ШИФРОВАНИЕ</p>
+                        </div>
+                    </article>
+
+                    <article class="comms-channel">
+                        <div class="channel-header">
+                            <div class="channel-icon">📍</div>
+                            <h3 class="channel-title">ФИЗИЧЕСКИЙ АДРЕС</h3>
+                        </div>
+                        <div class="channel-data">
+                            <p><strong>КООРДИНАТЫ:</strong></p>
+                            <p>обл. Новосибирская, г. Бердск</p>
+                            <p>ул. Красная Сибирь. д. 103, кв. 108</p>
+                            <p><strong>СТАТУС:</strong> <span style="color: var(--accent)">● СТАНДАРТ</span></p>
+                        </div>
+                    </article>
+                </section>
+
+                <section class="comms-node">
+                    <h3 class="visually-hidden">Дополнительные параметры связи</h3>
+                    <div class="node-grid">
+                        <div class="node-item">
+                            <span class="node-label">КОММУНИКАЦИОННЫЙ КАНАЛ</span>
+                            <span class="node-value">+7-913-959-87-65</span>
+                        </div>
+                        <div class="node-item">
+                            <span class="node-label">ВРЕМЯ АКТИВНОСТИ</span>
+                            <span class="node-value">09:00 - 18:00</span>
+                        </div>
+                        <div class="node-item">
+                            <span class="node-label">ЧАСОВОЙ ПОЯС</span>
+                            <span class="node-value">UTC+7</span>
+                        </div>
+                        <div class="node-item">
+                            <span class="node-label">СТАТУС СИСТЕМЫ</span>
+                            <span class="node-value" style="color: var(--success)">НОМИНАЛЬНЫЙ</span>
+                        </div>
+                    </div>
+                </section>
+
+                <button class="initiate-comms" onclick="contactModal.showModal()">
+                    АКТИВИРОВАТЬ КАНАЛ СВЯЗИ
+                </button>
+            </div>
+        </main>
+
+        <footer class="cyber-footer">
+            <div class="footer-signal"></div>
+            <p class="system-id">© 2025 СИСТЕМА НИКОЛАЙ ГРАЧЕВ | КОММУНИКАЦИОННЫЙ ПРОТОКОЛ v4.2</p>
+        </footer>
+
+    <dialog id="contactModal" class="cyber-modal">
+        <div class="modal-header">
+            <h2 class="modal-title">ФОРМА УСТАНОВКИ СВЯЗИ</h2>
+        </div>
+
+        <div class="modal-content">
+            <form id="feedbackForm" method="dialog">
+                <div class="input-group">
+                    <label for="name" class="input-label">
+                        ИДЕНТИФИКАТОР <span class="required">*</span>
+                    </label>
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        required
+                        placeholder="ВВЕДИТЕ ВАШ ИДЕНТИФИКАТОР"
+                        class="cyber-input"
+                    />
+                </div>
+
+                <div class="input-group">
+                    <label for="phone" class="input-label">
+                        КОММ-КАнал <span class="required">*</span>
+                    </label>
+                    <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        required
+                        placeholder="+7 (XXX) XXX-XX-XX"
+                        class="cyber-input"
+                    />
+                </div>
+
+                <div class="input-group">
+                    <label for="email" class="input-label">
+                        ЭЛЕКТРОННЫЙ АДРЕС <span class="required">*</span>
+                    </label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        required
+                        placeholder="user@domain.com"
+                        class="cyber-input"
+                    />
+                </div>
+
+                <div class="input-group">
+                    <label for="category" class="input-label">
+                        КАТЕГОРИЯ СВЯЗИ <span class="required">*</span>
+                    </label>
+                    <select id="category" name="category" required class="cyber-select">
+                        <option value="">ВЫБЕРИТЕ КАТЕГОРИЮ</option>
+                        <option value="technical">ТЕХНИЧЕСКАЯ ПОДДЕРЖКА</option>
+                        <option value="commercial">КОММЕРЧЕСКОЕ ПРЕДЛОЖЕНИЕ</option>
+                        <option value="cooperation">СОТРУДНИЧЕСТВО</option>
+                        <option value="complaint">СИГНАЛ ОШИБКИ</option>
+                        <option value="suggestion">ПРЕДЛОЖЕНИЕ ПО МОДЕРНИЗАЦИИ</option>
+                        <option value="other">ДРУГОЙ КАНАЛ</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="message" class="input-label">
+                        СООБЩЕНИЕ <span class="required">*</span>
+                    </label>
+                    <textarea
+                        id="message"
+                        name="message"
+                        required
+                        placeholder="ВВЕДИТЕ ТЕКСТ СООБЩЕНИЯ ДЛЯ УСТАНОВКИ СВЯЗИ..."
+                        class="cyber-textarea"
+                    ></textarea>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" onclick="clearForm()" class="btn--secondary">
+                        ОТМЕНА
+                    </button>
+                    <button type="button" class="btn--primary" onclick="submitForm()">
+                        УСТАНОВИТЬ СВЯЗЬ
+                    </button>
+                </div>
+            </form>
+        </div>
+    </dialog>
+
+    <script>
+        const contactModal = document.getElementById('contactModal');
+        
+        function clearForm() {
+            const form = document.getElementById("feedbackForm");
+            contactModal.close();
+            form.reset();
+        }
+
+        function submitForm() {
+            const form = document.getElementById("feedbackForm");
+            const formData = new FormData(form);
+
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+            const data = {
+                name: formData.get("name"),
+                phone: formData.get("phone"),
+                email: formData.get("email"),
+                category: formData.get("category"),
+                message: formData.get("message"),
+            };
+
+            alert("СВЯЗЬ УСТАНОВЛЕНА! ВАШЕ СООБЩЕНИЕ ПЕРЕДАНО. ОЖИДАЙТЕ ОТВЕТА ПО УКАЗАННОМУ КАНАЛУ.");
+            contactModal.close();
+            form.reset();
+        }
+
+        contactModal.addEventListener("click", function (event) {
+            if (event.target === this) {
+                this.close();
+            }
+        });
+
+        document.getElementById("feedbackForm").addEventListener("keypress", function (event) {
+            if (event.key === "Enter" && event.target.type !== "textarea") {
+                event.preventDefault();
+            }
+        });
+    </script>
+    <script src="../theme.js"></script>
+</body>
+</html>

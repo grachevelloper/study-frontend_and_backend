@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="cyber">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>СИСТЕМНЫЙ ЦЕНТР | Главный терминал</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style/styles.css" />
+    <link rel="stylesheet" href="style/index.css" />
+</head>
+<body>
+    <div class="cyber-container">
+        <header class="cyber-header">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-10">
+                        <div class="terminal-title">
+                            <h1 class="header__title glitch" data-text="СИСТЕМНЫЙ ЦЕНТР">СИСТЕМНЫЙ ЦЕНТР</h1>
+                            <div class="pulse-ring"></div>
+                        </div>
+                    </div>
+                    <div class="col-2 text-end">
+                        <button aria-label="Активировать сканирование системы" class="header__theme-toggle cyber-scan">
+                             <span class="header__theme-icon">⚡</span>
+                            <div class="scan-wave"></div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+
+        <nav class="system-nav">
+            <div class="container-fluid">
+                <div class="nav-grid-line"></div>
+                <ul class="system-nav__list row justify-content-center">
+                    <li class="system-nav__item col-auto">
+                        <a href="index.html" class="system-nav__link system-nav__link--active">
+                            <span class="nav-terminal">▶ ГЛАВНЫЙ ТЕРМИНАЛ</span>
+                            <div class="active-pulse"></div>
+                        </a>
+                    </li>
+                    <li class="system-nav__item col-auto">
+                        <a href="pages/news.html" class="system-nav__link">
+                            <span class="nav-terminal">■ ИНФО-ПОТОК</span>
+                        </a>
+                    </li>
+                    <li class="system-nav__item col-auto">
+                        <a href="pages/goods.html" class="system-nav__link">
+                            <span class="nav-terminal">⚡ КИБЕР-АРСЕНАЛ</span>
+                        </a>
+                    </li>
+                    <li class="system-nav__item col-auto">
+                        <a href="pages/contacts.html" class="system-nav__link">
+                            <span class="nav-terminal">● КОММ-УЗЕЛ</span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="nav-grid-line"></div>
+            </div>
+        </nav>
+
+        <main class="cyber-main">
+            <div class="container-fluid">
+
+                <section class="operator-profile text-center mb-5">
+                    <div class="terminal-header mb-4">
+                        <h2 class="terminal-prompt">>> СИСТЕМНЫЙ ОПЕРАТОР_</h2>
+                        <div class="cursor-blink">|</div>
+                    </div>
+                    
+                    <div class="operator-frame">
+                        <div class="frame-corner tl"></div>
+                        <div class="frame-corner tr"></div>
+                        <div class="frame-corner bl"></div>
+                        <div class="frame-corner br"></div>
+                        
+                        <img class="operator-photo" src="images/photo.jpg" alt="Идентификатор оператора" />
+                        <h3 class="operator-name">ГРАЧЕВ НИКОЛАЙ РОМАНОВИЧ</h3>
+                        <p class="operator-id">ИДЕНТИФИКАТОР: ЭФБО-02-24</p>
+                        <div class="status-indicators">
+                            <span class="status-indicator online"></span>
+                            <span class="status-text">СИСТЕМА АКТИВНА</span>
+                        </div>
+                    </div>
+                </section>
+
+
+                <section class="mission-protocol mb-5">
+                    <div class="protocol-header">
+                        <h3 class="protocol-title">ПРОТОКОЛ МИССИИ</h3>
+                        <div class="encryption-level">🔒 УРОВЕНЬ ДОСТУПА: АЛЬФА</div>
+                    </div>
+                    <div class="protocol-content">
+                        <p class="mission-text">
+                            СТАТУС: ОБУЧЕНИЕ В СИСТЕМЕ РТУ МИРЭА | СПЕЦИАЛИЗАЦИЯ: ПОЛНЫЙ ЦИКЛ РАЗРАБОТКИ<br>
+                            ПРЕДЫДУЩАЯ ОПЕРАЦИЯ: СТАЖИРОВКА В СЕКТОРЕ "ЯНДЕКС" (Express.ts + React)<br>
+                            ТЕКУЩИЙ ЦЕЛЬ: АКТИВАЦИЯ РАБОЧЕГО ПРОТОКОЛА
+                        </p>
+                    </div>
+                </section>
+
+
+                <section class="tech-competence mb-5">
+                    <div class="competence-header">
+                        <h2 class="section-title-terminal">ТЕХНИЧЕСКИЕ КОМПЕТЕНЦИИ</h2>
+                        <div class="skill-meter">
+                            <div class="meter-bar" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skills-matrix">
+                        <div class="skill-node" data-level="expert">
+                            <span class="skill-name">JavaScript/TypeScript</span>
+                            <div class="skill-progress">
+                                <div class="progress-fill" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-node" data-level="advanced">
+                            <span class="skill-name">React</span>
+                            <div class="skill-progress">
+                                <div class="progress-fill" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-node" data-level="advanced">
+                            <span class="skill-name">Webpack/Vite</span>
+                            <div class="skill-progress">
+                                <div class="progress-fill" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-node" data-level="expert">
+                            <span class="skill-name">Redux/Zustand/MobX/React-Query/Jotai</span>
+                            <div class="skill-progress">
+                                <div class="progress-fill" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-node" data-level="intermediate">
+                            <span class="skill-name">Docker/Nginx/K8n</span>
+                            <div class="skill-progress">
+                                <div class="progress-fill" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-node" data-level="expert">
+                            <span class="skill-name">MVP/MVC/SOLID/DRY</span>
+                            <div class="skill-progress">
+                                <div class="progress-fill" style="width: 92%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+
+                    <div class="archive-header">
+                        <h2 class="section-title-terminal">АРХИВ ОПЕРАЦИЙ</h2>
+                        <div class="archive-stats">
+                            <span class="stat-item">АКТИВНЫХ: 3</span>
+                            <span class="stat-item">ЗАВЕРШЕННЫХ: 12+</span>
+                        </div>
+                    </div>
+
+                  <div class="operations-grid">
+                    <div class="row g-4">
+
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <article class="operation-card" data-priority="high">
+                                <div class="card h-100 border-0 shadow-lg position-relative overflow-hidden">
+                                    <div class="card-header bg-dark text-white py-3 border-bottom border-primary">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <h5 class="mb-0 text-warning fw-bold">PSYCHO-ANALYTIC-PORTAL</h5>
+                                            <span class="badge bg-success">✓ ЗАВЕРШЕНО</span>
+                                        </div>
+                                        <small class="text-muted">Уровень: Стандарт</small>
+                                    </div>
+                                    <div class="card-body bg-light">
+                                        <div class="row align-items-center mb-3">
+                                            <div class="col-3 text-center">
+                                                <div class="hologram-icon">
+                                                    <i class="fas fa-globe fa-2x text-primary"></i>
+                                                    <div class="hologram-glow"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-9">
+                                                <p class="mb-1"><strong>СИСТЕМА:</strong> Веб-портал психоаналитика</p>
+                                                <p class="mb-1"><strong>ФУНКЦИОНАЛ:</strong> Профессиональная визитка</p>
+                                                <p class="mb-0"><strong>АРХИТЕКТУРА:</strong> Клиент-серверная</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer bg-dark text-white">
+                                        <small class="text-muted d-block mb-2">Технологический стек:</small>
+                                        <div class="tech-tags">
+                                            <span class="badge bg-primary me-1 mb-1">React</span>
+                                            <span class="badge bg-info me-1 mb-1">SCSS</span>
+                                            <span class="badge bg-secondary me-1 mb-1">REST API</span>
+                                            <span class="badge bg-warning text-dark me-1 mb-1">Axios</span>
+                                        </div>
+                                    </div>
+                                    <div class="position-absolute top-0 start-0 w-100 h-100 op-glow"></div>
+                                </div>
+                            </article>
+                        </div>
+
+
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <article class="operation-card" data-priority="critical">
+                                <div class="card h-100 border-0 shadow-lg position-relative overflow-hidden">
+                                    <div class="card-header bg-dark text-white py-3 border-bottom border-info">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <h5 class="mb-0 text-info fw-bold">SOVIET-EDU-PLATFORM</h5>
+                                            <span class="badge bg-success">✓ ЗАВЕРШЕНО</span>
+                                        </div>
+                                        <small class="text-muted">Уровень: Повышенный</small>
+                                    </div>
+                                    <div class="card-body bg-light">
+                                        <div class="row align-items-center mb-3">
+                                            <div class="col-3 text-center">
+                                                <div class="hologram-icon">
+                                                    <i class="fas fa-graduation-cap fa-2x text-info"></i>
+                                                    <div class="hologram-glow"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-9">
+                                                <p class="mb-1"><strong>СИСТЕМА:</strong> Образовательная платформа</p>
+                                                <p class="mb-1"><strong>ТЕМАТИКА:</strong> Советская эпоха</p>
+                                                <p class="mb-1"><strong>СТРУКТУРА:</strong> Многомодульная</p>
+                                                <p class="mb-0"><strong>БАЗА ДАННЫХ:</strong> PostgreSQL</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer bg-dark text-white">
+                                        <small class="text-muted d-block mb-2">Технологический стек:</small>
+                                        <div class="tech-tags">
+                                            <span class="badge bg-primary me-1 mb-1">SPA</span>
+                                            <span class="badge bg-success me-1 mb-1">Express.js</span>
+                                            <span class="badge bg-danger me-1 mb-1">PostgreSQL</span>
+                                            <span class="badge bg-warning text-dark me-1 mb-1">Архитектура</span>
+                                        </div>
+                                    </div>
+                                    <div class="position-absolute top-0 start-0 w-100 h-100 op-glow"></div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- Операция 3 -->
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <article class="operation-card" data-priority="maximum">
+                                <div class="card h-100 border-0 shadow-lg position-relative overflow-hidden">
+                                    <div class="card-header bg-dark text-white py-3 border-bottom border-warning">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <h5 class="mb-0 text-warning fw-bold">SPEC-TECH-CONTROL</h5>
+                                            <span class="badge bg-warning text-dark">🏆 ПОБЕДИТЕЛЬ</span>
+                                        </div>
+                                        <small class="text-muted">Уровень: Максимальный</small>
+                                    </div>
+                                    <div class="card-body bg-light">
+                                        <div class="row align-items-center mb-3">
+                                            <div class="col-3 text-center">
+                                                <div class="hologram-icon">
+                                                    <i class="fas fa-trophy fa-2x text-warning"></i>
+                                                    <div class="hologram-glow"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-9">
+                                                <p class="mb-1"><strong>СИСТЕМА:</strong> Управление спецтехникой</p>
+                                                <p class="mb-1"><strong>СОБЫТИЕ:</strong> Хакатон 1С</p>
+                                                <p class="mb-1"><strong>РЕЗУЛЬТАТ:</strong> 1 место</p>
+                                                <p class="mb-0"><strong>КОМПЕТЕНЦИЯ:</strong> Frontend React</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer bg-dark text-white">
+                                        <small class="text-muted d-block mb-2">Технологический стек:</small>
+                                        <div class="tech-tags">
+                                            <span class="badge bg-primary me-1 mb-1">React</span>
+                                            <span class="badge bg-info me-1 mb-1">TypeScript</span>
+                                            <span class="badge bg-purple me-1 mb-1">Redux Toolkit</span>
+                                            <span class="badge bg-success me-1 mb-1">React Router</span>
+                                        </div>
+                                    </div>
+                                    <div class="achievement-badge position-absolute top-0 end-0 m-2">
+                                        <span class="badge bg-danger">ТОП-1</span>
+                                    </div>
+                                    <div class="position-absolute top-0 start-0 w-100 h-100 op-glow"></div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+
+                    <div class="external-access">
+                        <h3 class="access-title">ПОЛНЫЙ АРХИВ ОПЕРАЦИЙ ДОСТУПЕН ПО КАНАЛУ:</h3>
+                        <a href="https://nick55555554.github.io/my_projects/" class="access-link" target="_blank">
+                            https://nick55555554.github.io/my_projects/
+                            <span class="link-indicator">↗</span>
+                        </a>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+
+        <footer class="cyber-footer">
+            <div class="container-fluid">
+                <div class="system-grid"></div>
+                <p class="system-signature">
+                    <span class="blink">▶</span> СИСТЕМА НИКОЛАЙ ГРАЧЕВ | ГЛАВНЫЙ ТЕРМИНАЛ v5.0 © 2025
+                </p>
+                <div class="security-status">
+                    <span class="security-light"></span>
+                    <span class="security-text">ПРОТОКОЛЫ БЕЗОПАСНОСТИ: АКТИВИРОВАНЫ</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./theme.js"></script>
+    <script src="./cards.js"></script>
+</body>
+</html>
