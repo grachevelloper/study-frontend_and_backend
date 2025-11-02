@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="neon">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../style/styles.css" />
+     <link rel="stylesheet" href="../style/goods.css" />
+    <title>КИБЕР-АРСЕНАЛ | Технологические артефакты</title>
+</head>
+<body>
+    <div class="cyber-container">
+        <header class="cyber-header">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-10">
+                        <div class="hologram-title">
+                            <h1 class="header__title glitch" data-text="КИБЕР-АРСЕНАЛ">КИБЕР-АРСЕНАЛ</h1>
+                            <div class="energy-pulse"></div>
+                        </div>
+                    </div>
+                    <div class="col-2 text-end">
+                        <button class="header__theme-toggle cyber-scan" aria-label="Активировать сканирование">
+                            <span class="header__theme-icon">🔍</span>
+                            <div class="scan-beam"></div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+
+        <nav class="system-nav">
+            <div class="container-fluid">
+                <div class="interface-line"></div>
+                <ul class="system-nav__list row justify-content-center">
+                    <li class="system-nav__item col-auto">
+                        <a href="../index.html" class="system-nav__link">
+                            <span class="nav-hologram">▲ ЦЕНТРАЛЬНЫЙ ХАБ</span>
+                        </a>
+                    </li>
+                    <li class="system-nav__item col-auto">
+                        <a href="./news.html" class="system-nav__link">
+                            <span class="nav-hologram">■ ИНФО-ПОТОК</span>
+                        </a>
+                    </li>
+                    <li class="system-nav__item col-auto">
+                        <a href="./goods.html" class="system-nav__link system-nav__link--active">
+                            <span class="nav-hologram">⚡ КИБЕР-АРСЕНАЛ</span>
+                            <div class="active-energy"></div>
+                        </a>
+                    </li>
+                    <li class="system-nav__item col-auto">
+                        <a href="./contacts.html" class="system-nav__link">
+                            <span class="nav-hologram">● КАНАЛЫ СВЯЗИ</span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="interface-line"></div>
+            </div>
+        </nav>
+
+        <main class="cyber-main">
+            <!-- Заголовок секции -->
+            <div class="container-fluid">
+                <div class="arsenal-header row align-items-center">
+                    <div class="col">
+                        <h2 class="arsenal-title">>> ДОСТУПНЫЕ АРТЕФАКТЫ_</h2>
+                    </div>
+                    <div class="col-auto">
+                        <div class="loading-dots">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <section class="cyber-arsenal" aria-labelledby="arsenal-title">
+                <h3 id="arsenal-title" class="visually-hidden">Инвентарь технологических артефактов</h3>
+                
+                <div class="container-fluid">
+                    <div class="row justify-content-center g-4">
+
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            <article class="artifact-card artifact-card--active" data-rarity="rare">
+                                <div class="artifact-frame">
+                                    <div class="corner-tl"></div>
+                                    <div class="corner-tr"></div>
+                                    <div class="corner-bl"></div>
+                                    <div class="corner-br"></div>
+                                    <img
+                                        src="../images/product1.jpg"
+                                        alt="Многоуровневая система хранения данных"
+                                        class="artifact-card__image hologram-img img-fluid"
+                                    />
+                                    <div class="artifact-overlay">
+                                        <div class="scan-effect"></div>
+                                    </div>
+                                </div>
+                                <h4 class="artifact-card__title">МНОГОУРОВНЕВАЯ СИСТЕМА ХРАНЕНИЯ</h4>
+                                <div class="artifact-specs">
+                                    <span class="spec-tag badge bg-primary">РЕДКОСТЬ: СИНИЙ</span>
+                                    <span class="spec-tag badge bg-secondary">ТИП: ХРАНИЛИЩЕ</span>
+                                </div>
+                                <p class="artifact-card__price">
+                                    <span class="price-old">1500 ЕДИНИЦ ЭНЕРГИИ</span>
+                                    <span class="price-new glitch-text">1000 ЕДИНИЦ ЭНЕРГИИ</span>
+                                </p>
+                                <button class="acquisition-protocol btn btn-outline-success w-100" data-artifact="storage-system">
+                                    АКТИВИРОВАТЬ ПРОТОКОЛ ПРИОБРЕТЕНИЯ
+                                </button>
+                            </article>
+                        </div>
+
+
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            <article class="artifact-card artifact-card--active" data-rarity="uncommon">
+                                <div class="artifact-frame">
+                                    <div class="corner-tl"></div>
+                                    <div class="corner-tr"></div>
+                                    <div class="corner-bl"></div>
+                                    <div class="corner-br"></div>
+                                    <img
+                                        src="../images/product2.jpg"
+                                        alt="Шлюз с интерфейсом доступа"
+                                        class="artifact-card__image hologram-img img-fluid"
+                                    />
+                                    <div class="artifact-overlay">
+                                        <div class="scan-effect"></div>
+                                    </div>
+                                </div>
+                                <h4 class="artifact-card__title">ШЛЮЗ С ИНТЕРФЕЙСОМ ДОСТУПА</h4>
+                                <div class="artifact-specs">
+                                    <span class="spec-tag badge bg-success">РЕДКОСТЬ: ЗЕЛЕНЫЙ</span>
+                                    <span class="spec-tag badge bg-secondary">ТИП: КОНТРОЛЬ ДОСТУПА</span>
+                                </div>
+                                <p class="artifact-card__price">
+                                    <span class="price-new">1500 ЕДИНИЦ ЭНЕРГИИ</span>
+                                </p>
+                                <button class="acquisition-protocol btn btn-outline-success w-100" data-artifact="access-gate">
+                                    АКТИВИРОВАТЬ ПРОТОКОЛ ПРИОБРЕТЕНИЯ
+                                </button>
+                            </article>
+                        </div>
+
+
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            <article class="artifact-card artifact-card--active" data-rarity="epic">
+                                <div class="artifact-frame">
+                                    <div class="corner-tl"></div>
+                                    <div class="corner-tr"></div>
+                                    <div class="corner-bl"></div>
+                                    <div class="corner-br"></div>
+                                    <img
+                                        src="../images/product4.jpg"
+                                        alt="Голографическая проекция мироздания"
+                                        class="artifact-card__image hologram-img img-fluid"
+                                    />
+                                    <div class="artifact-overlay">
+                                        <div class="scan-effect"></div>
+                                    </div>
+                                </div>
+                                <h4 class="artifact-card__title">ПРОЕКЦИЯ МИРОЗДАНИЯ</h4>
+                                <div class="artifact-specs">
+                                    <span class="spec-tag badge bg-purple">РЕДКОСТЬ: ФИОЛЕТОВЫЙ</span>
+                                    <span class="spec-tag badge bg-secondary">ТИП: ГОЛОГРАММА</span>
+                                </div>
+                                <p class="artifact-card__price">
+                                    <span class="price-new">2000 ЕДИНИЦ ЭНЕРГИИ</span>
+                                </p>
+                                <button class="acquisition-protocol btn btn-outline-success w-100" data-artifact="cosmic-projection">
+                                    АКТИВИРОВАТЬ ПРОТОКОЛ ПРИОБРЕТЕНИЯ
+                                </button>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Панель статуса с Bootstrap -->
+            <div class="container-fluid mt-4">
+                <div class="system-status-panel row justify-content-center text-center">
+                    <div class="col-md-4">
+                        <div class="status-item">
+                            <span class="status-label">АКТИВНЫЕ АРТЕФАКТЫ:</span>
+                            <span class="status-value glitch-text">3</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="status-item">
+                            <span class="status-label">ОБЩАЯ СТОИМОСТЬ:</span>
+                            <span class="status-value">4500 ЕД.ЭНЕРГИИ</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="status-item">
+                            <span class="status-label">СТАТУС СИСТЕМЫ:</span>
+                            <span class="status-value online">▲ ОНЛАЙН</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Футер -->
+        <footer class="cyber-footer">
+            <div class="container-fluid">
+                <div class="footer-grid"></div>
+                <p class="system-copyright text-center">
+                    <span class="blink">■</span> СИСТЕМА ЗАЩИТЫ АКТИВИРОВАНА | КИБЕР-АРСЕНАЛ v3.2.1 © 2025
+                </p>
+                <div class="security-protocol text-center">
+                    <span class="protocol-indicator"></span>
+                    <span class="protocol-text">ПРОТОКОЛЫ БЕЗОПАСНОСТИ: АКТИВНЫ</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../theme.js"></script>
+    <script src="../cards.js"></script>
+</body>
+</html>

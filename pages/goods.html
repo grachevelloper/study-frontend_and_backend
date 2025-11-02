@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="cyber">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <title>КИБЕР-АРСЕНАЛ | Технологические артефакты</title>
+    <style>
+        .border-purple { border-color: #8a2be2 !important; }
+        .bg-purple { background-color: #8a2be2 !important; }
+        .text-purple { color: #8a2be2 !important; }
+        .btn-outline-purple { 
+            color: #8a2be2;
+            border-color: #8a2be2;
+        }
+        .btn-outline-purple:hover {
+            background-color: #8a2be2;
+            color: white;
+        }
+
+        [data-theme="cyber"] {
+            --primary: #8a2be2;
+            --secondary: #6c757d;
+            --success: #198754;
+            --dark: #212529;
+            --light: #f8f9fa;
+            --accent: #00ffff;
+        }
+
+        [data-theme="neon"] {
+            --primary: #00ff00;
+            --secondary: #ff00ff;
+            --success: #ffff00;
+            --dark: #0a0a0a;
+            --light: #00ffff;
+            --accent: #ff0000;
+        }
+
+        [data-theme="cyber"] body {
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 100%);
+            color: var(--light);
+        }
+
+        [data-theme="neon"] body {
+            background: linear-gradient(135deg, #000000 0%, #1a0033 100%);
+            color: var(--light);
+        }
+
+        [data-theme="cyber"] .bg-dark {
+            background: rgba(15, 15, 35, 0.95) !important;
+            backdrop-filter: blur(10px);
+        }
+
+        [data-theme="neon"] .bg-dark {
+            background: rgba(0, 0, 0, 0.95) !important;
+            backdrop-filter: blur(10px);
+        }
+
+        [data-theme="cyber"] .bg-secondary {
+            background: linear-gradient(135deg, #2d2d42 0%, #3a3a52 100%) !important;
+        }
+
+        [data-theme="neon"] .bg-secondary {
+            background: linear-gradient(135deg, #330033 0%, #660066 100%) !important;
+        }
+
+        [data-theme="cyber"] .border-primary {
+            border-color: var(--primary) !important;
+            box-shadow: 0 0 10px var(--primary);
+        }
+
+        [data-theme="neon"] .border-primary {
+            border-color: var(--primary) !important;
+            box-shadow: 0 0 15px var(--primary), 0 0 30px var(--primary);
+        }
+
+        [data-theme="cyber"] .text-primary {
+            color: var(--primary) !important;
+            text-shadow: 0 0 5px var(--primary);
+        }
+
+        [data-theme="neon"] .text-primary {
+            color: var(--primary) !important;
+            text-shadow: 0 0 10px var(--primary), 0 0 20px var(--primary);
+        }
+
+        [data-theme="cyber"] .btn-outline-primary {
+            color: var(--primary);
+            border-color: var(--primary);
+            text-shadow: 0 0 5px var(--primary);
+        }
+
+        [data-theme="neon"] .btn-outline-primary {
+            color: var(--primary);
+            border-color: var(--primary);
+            text-shadow: 0 0 10px var(--primary);
+            box-shadow: 0 0 10px var(--primary);
+        }
+
+        [data-theme="cyber"] .btn-outline-primary:hover {
+            background-color: var(--primary);
+            color: var(--dark);
+            box-shadow: 0 0 20px var(--primary);
+        }
+
+        [data-theme="neon"] .btn-outline-primary:hover {
+            background-color: var(--primary);
+            color: var(--dark);
+            box-shadow: 0 0 30px var(--primary);
+        }
+
+        .card {
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .header__theme-toggle {
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary) !important;
+        }
+
+        .header__theme-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px var(--primary);
+        }
+
+        .nav-link {
+            transition: all 0.3s ease;
+            border-radius: 5px;
+        }
+
+        .nav-link:hover {
+            transform: translateY(-2px);
+        }
+
+        .glow-text {
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 5px currentColor; }
+            to { text-shadow: 0 0 20px currentColor, 0 0 30px currentColor; }
+        }
+    </style>
+</head>
+<body class="bg-dark text-light">
+    <div class="container-fluid p-0">
+        <header class="bg-dark border-bottom border-primary py-3">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-10 col-md-11">
+                        <h1 class="text-primary fw-bold text-uppercase mb-0 glow-text">КИБЕР-АРСЕНАЛ</h1>
+                    </div>
+                    <div class="col-2 col-md-1 text-end">
+                        <button class="btn btn-dark border border-primary rounded-circle p-2 header__theme-toggle">
+                            <span class="header__theme-icon">🔍</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <nav class="bg-secondary py-2">
+            <div class="container">
+                <div class="border-top border-primary my-2"></div>
+                <ul class="nav nav-pills justify-content-center flex-column flex-md-row">
+                    <li class="nav-item mx-1 my-1">
+                        <a href="../index.html" class="nav-link text-light">▲ ЦЕНТРАЛЬНЫЙ ХАБ</a>
+                    </li>
+                    <li class="nav-item mx-1 my-1">
+                        <a href="./news.html" class="nav-link text-light">■ ИНФО-ПОТОК</a>
+                    </li>
+                    <li class="nav-item mx-1 my-1">
+                        <a href="./goods.html" class="nav-link active bg-primary text-dark">⚡ КИБЕР-АРСЕНАЛ</a>
+                    </li>
+                    <li class="nav-item mx-1 my-1">
+                        <a href="./contacts.html" class="nav-link text-light">● КАНАЛЫ СВЯЗИ</a>
+                    </li>
+                </ul>
+                <div class="border-top border-primary my-2"></div>
+            </div>
+        </nav>
+
+        <main class="py-4">
+            <div class="container">
+                <div class="row align-items-center border-bottom border-primary pb-3 mb-4">
+                    <div class="col-md-8">
+                        <h2 class="text-primary mb-0 glow-text">>> ДОСТУПНЫЕ АРТЕФАКТЫ_</h2>
+                    </div>
+                    <div class="col-md-4 text-md-end">
+                        <div class="d-flex justify-content-end gap-1">
+                            <span class="bg-danger rounded-circle" style="width: 8px; height: 8px;"></span>
+                            <span class="bg-warning rounded-circle" style="width: 8px; height: 8px;"></span>
+                            <span class="bg-success rounded-circle" style="width: 8px; height: 8px;"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <section>
+                    <div class="row g-4">
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="card bg-secondary border border-primary h-100">
+                                <div class="card-body">
+                                    <div class="position-relative mb-3">
+                                        <img src="../images/product1.jpg" class="card-img-top" alt="Система хранения">
+                                        <div class="position-absolute top-0 start-0 border-top border-start border-primary" style="width: 20px; height: 20px;"></div>
+                                        <div class="position-absolute top-0 end-0 border-top border-end border-primary" style="width: 20px; height: 20px;"></div>
+                                        <div class="position-absolute bottom-0 start-0 border-bottom border-start border-primary" style="width: 20px; height: 20px;"></div>
+                                        <div class="position-absolute bottom-0 end-0 border-bottom border-end border-primary" style="width: 20px; height: 20px;"></div>
+                                    </div>
+                                    <h5 class="card-title text-primary text-uppercase">МНОГОУРОВНЕВАЯ СИСТЕМА ХРАНЕНИЯ</h5>
+                                    <div class="mb-3">
+                                        <span class="badge bg-info me-1">РЕДКОСТЬ: СИНИЙ</span>
+                                        <span class="badge bg-info">ТИП: ХРАНИЛИЩЕ</span>
+                                    </div>
+                                    <p class="card-text">
+                                        <small class="text-muted text-decoration-line-through">1500 ЕДИНИЦ ЭНЕРГИИ</small><br>
+                                        <strong class="text-warning">1000 ЕДИНИЦ ЭНЕРГИИ</strong>
+                                    </p>
+                                    <button class="btn btn-outline-primary w-100">АКТИВИРОВАТЬ ПРОТОКОЛ ПРИОБРЕТЕНИЯ</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="card bg-secondary border border-success h-100">
+                                <div class="card-body">
+                                    <div class="position-relative mb-3">
+                                        <img src="../images/product2.jpg" class="card-img-top" alt="Шлюз доступа">
+                                        <div class="position-absolute top-0 start-0 border-top border-start border-success" style="width: 20px; height: 20px;"></div>
+                                        <div class="position-absolute top-0 end-0 border-top border-end border-success" style="width: 20px; height: 20px;"></div>
+                                        <div class="position-absolute bottom-0 start-0 border-bottom border-start border-success" style="width: 20px; height: 20px;"></div>
+                                        <div class="position-absolute bottom-0 end-0 border-bottom border-end border-success" style="width: 20px; height: 20px;"></div>
+                                    </div>
+                                    <h5 class="card-title text-success text-uppercase">ШЛЮЗ С ИНТЕРФЕЙСОМ ДОСТУПА</h5>
+                                    <div class="mb-3">
+                                        <span class="badge bg-success me-1">РЕДКОСТЬ: ЗЕЛЕНЫЙ</span>
+                                        <span class="badge bg-success">ТИП: КОНТРОЛЬ ДОСТУПА</span>
+                                    </div>
+                                    <p class="card-text">
+                                        <strong class="text-warning">1500 ЕДИНИЦ ЭНЕРГИИ</strong>
+                                    </p>
+                                    <button class="btn btn-outline-success w-100">АКТИВИРОВАТЬ ПРОТОКОЛ ПРИОБРЕТЕНИЯ</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="card bg-secondary border border-purple h-100">
+                                <div class="card-body">
+                                    <div class="position-relative mb-3">
+                                        <img src="../images/product4.jpg" class="card-img-top" alt="Проекция мироздания">
+                                        <div class="position-absolute top-0 start-0 border-top border-start border-purple" style="width: 20px; height: 20px;"></div>
+                                        <div class="position-absolute top-0 end-0 border-top border-end border-purple" style="width: 20px; height: 20px;"></div>
+                                        <div class="position-absolute bottom-0 start-0 border-bottom border-start border-purple" style="width: 20px; height: 20px;"></div>
+                                        <div class="position-absolute bottom-0 end-0 border-bottom border-end border-purple" style="width: 20px; height: 20px;"></div>
+                                    </div>
+                                    <h5 class="card-title text-purple text-uppercase">ПРОЕКЦИЯ МИРОЗДАНИЯ</h5>
+                                    <div class="mb-3">
+                                        <span class="badge bg-purple me-1">РЕДКОСТЬ: ФИОЛЕТОВЫЙ</span>
+                                        <span class="badge bg-purple">ТИП: ГОЛОГРАММА</span>
+                                    </div>
+                                    <p class="card-text">
+                                        <strong class="text-warning">2000 ЕДИНИЦ ЭНЕРГИИ</strong>
+                                    </p>
+                                    <button class="btn btn-outline-purple w-100">АКТИВИРОВАТЬ ПРОТОКОЛ ПРИОБРЕТЕНИЯ</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="card bg-secondary border border-info mt-4">
+                    <div class="card-body">
+                        <div class="row text-center">
+                            <div class="col-md-4 mb-3 mb-md-0">
+                                <div class="text-muted small">АКТИВНЫЕ АРТЕФАКТЫ:</div>
+                                <div class="h4 text-primary">3</div>
+                            </div>
+                            <div class="col-md-4 mb-3 mb-md-0">
+                                <div class="text-muted small">ОБЩАЯ СТОИМОСТЬ:</div>
+                                <div class="h4 text-warning">4500 ЕД.ЭНЕРГИИ</div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="text-muted small">СТАТУС СИСТЕМЫ:</div>
+                                <div class="h4 text-success">▲ ОНЛАЙН</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="bg-secondary border-top border-primary py-3 mt-4">
+            <div class="container text-center">
+                <p class="text-primary mb-2">
+                    <span class="text-success">■</span> СИСТЕМА ЗАЩИТЫ АКТИВИРОВАНА | КИБЕР-АРСЕНАЛ v3.2.1 © 2025
+                </p>
+                <div class="d-flex align-items-center justify-content-center">
+                    <span class="bg-success rounded-circle me-2" style="width: 10px; height: 10px;"></span>
+                    <small class="text-muted">ПРОТОКОЛЫ БЕЗОПАСНОСТИ: АКТИВНЫ</small>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const themeToggle = document.querySelector(".header__theme-toggle");
+            const themeIcon = document.querySelector(".header__theme-icon");
+
+            if (themeToggle && themeIcon) {
+                themeToggle.addEventListener("click", () => {
+                    const currentTheme = document.documentElement.getAttribute("data-theme");
+                    const newTheme = currentTheme === "cyber" ? "neon" : "cyber";
+                    document.documentElement.setAttribute("data-theme", newTheme);
+                    themeIcon.textContent = newTheme === "cyber" ? "🔍" : "☀️";
+                    localStorage.setItem("theme", newTheme);
+                });
+
+                const savedTheme = localStorage.getItem("theme") || "cyber";
+                document.documentElement.setAttribute("data-theme", savedTheme);
+                themeIcon.textContent = savedTheme === "cyber" ? "🔍" : "☀️";
+            }
+        });
+    </script>
+</body>
+</html>
